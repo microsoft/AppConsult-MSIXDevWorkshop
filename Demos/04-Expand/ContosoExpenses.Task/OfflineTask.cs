@@ -1,5 +1,6 @@
 ﻿using Windows.ApplicationModel.Background;
 using Windows.Data.Xml.Dom;
+using Windows.Networking.Connectivity;
 using Windows.UI.Notifications;
 
 namespace ContosoExpenses.Task
@@ -10,8 +11,21 @@ namespace ContosoExpenses.Task
         {
             var deferral = taskInstance.GetDeferral();
 
-            string title = "Timezone changed!";
-            string description = "Make sure to sync all the expenses for your trip!";
+            var profile = NetworkInformation.GetInternetConnectionProfile();
+
+            string title;
+            string description;
+
+            if (profile != null)
+            {
+                title = "You're online!";
+                description = "Make sure to sync all the expenses for your trip!";
+            }
+            else
+            {
+                title = "You're offline!";
+                description = "Your expenses won't be synced until you're back online.";
+            }
 
 
             string xml = $@"<toast>

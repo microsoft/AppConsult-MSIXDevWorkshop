@@ -14,15 +14,12 @@ namespace ContosoExpenses
             // Check if the task is already registered
             foreach (var cur in BackgroundTaskRegistration.AllTasks)
             {
-                if (cur.Value.Name == triggerName)
-                {
-                    cur.Value.Unregister(true);
-                }
+                cur.Value.Unregister(true);
             }
 
             BackgroundTaskBuilder builder = new BackgroundTaskBuilder();
             builder.Name = triggerName;
-            builder.SetTrigger(new SystemTrigger(SystemTriggerType.TimeZoneChange, false));
+            builder.SetTrigger(new SystemTrigger(SystemTriggerType.NetworkStateChange, false));
             builder.TaskEntryPoint = "ContosoExpenses.Task.OfflineTask";
             builder.Register();
         }
