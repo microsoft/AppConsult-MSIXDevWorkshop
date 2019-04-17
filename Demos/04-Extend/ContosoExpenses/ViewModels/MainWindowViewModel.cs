@@ -38,6 +38,9 @@ namespace ContosoExpenses.ViewModels
             databaseService.InitializeDatabase();
             Employees = databaseService.GetEmployees();
             this.storageService = storageService;
+
+            BackgroundTaskService backgroundTaskService = new BackgroundTaskService();
+            backgroundTaskService.RegisterBackgroundTask();
         }
     }
 }
