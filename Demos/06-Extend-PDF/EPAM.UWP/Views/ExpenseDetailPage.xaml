@@ -1,0 +1,37 @@
+﻿<Page
+    x:Class="Expenses.UWP.Views.ExpenseDetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Style="{StaticResource PageStyle}"
+    xmlns:prismMvvm="using:Prism.Windows.Mvvm"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:converters="using:Expenses.UWP.Converters"
+    prismMvvm:ViewModelLocator.AutoWireViewModel="True" 
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <converters:BooleanToInverseConverter x:Key="BooleanToInverseConverter" />
+    </Page.Resources>
+
+    <Grid
+        x:Name="ContentArea"
+        Margin="{StaticResource MediumLeftRightMargin}">
+        <StackPanel
+            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+            <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
+                Place your content here.-->
+
+            <controls:DataGrid ItemsSource="{x:Bind ViewModel.Expenses, Mode=OneWay}" />
+            <StackPanel Orientation="Horizontal" Margin="0, 30, 0, 0">
+                <Button Content="Export as PDF" Click="{x:Bind ViewModel.OnExportAsPdf}"
+        Visibility="{x:Bind Path=ViewModel.IsExportAsPdfAvailable, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+        IsEnabled="{x:Bind Path=ViewModel.IsBusy, Mode=OneWay, Converter={StaticResource BooleanToInverseConverter}}"
+    />
+                <ProgressRing IsActive="{x:Bind Path=ViewModel.IsBusy, Mode=OneWay}" Width="50" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
