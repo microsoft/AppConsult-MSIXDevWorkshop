@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:telerikGrid="using:Telerik.UI.Xaml.Controls.Grid"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -20,7 +21,8 @@
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock Text="Employees" Style="{StaticResource HeaderTextBlockStyle}" Margin="24, 0, 0, 24" />
         <Button Content="Get employees" Click="OnGetEmployees" Margin="24, 0, 0, 24" />
-        <telerikGrid:RadDataGrid x:Name="EmployeesView" UserGroupMode="Disabled" Margin="24, 0, 24, 0" />
+        <!--<telerikGrid:RadDataGrid x:Name="EmployeesView" UserGroupMode="Disabled" Margin="24, 0, 24, 0" />-->
+        <toolkit:DataGrid x:Name="EmployeesView" Margin="24, 0, 24, 0" />
     </StackPanel>
 </Page>
     

@@ -104,19 +104,19 @@ namespace ExpenseItDemo
             deferral.Complete();
         }
 
-        protected override void OnBackgroundActivated(BackgroundActivatedEventArgs args)
-        {
-            //this method is invoked when the Win32 process requests to open the communication channel with the App Service
-            base.OnBackgroundActivated(args);
-            if (args.TaskInstance.TriggerDetails is AppServiceTriggerDetails)
-            {
-                appServiceDeferral = args.TaskInstance.GetDeferral();
-                AppServiceTriggerDetails details = args.TaskInstance.TriggerDetails as AppServiceTriggerDetails;
-                Connection = details.AppServiceConnection;
-                //we subscribe to the RequestReceived event, which is triggered when the Win32 app sends some data through the channel
-                Connection.RequestReceived += Connection_RequestReceived;
-            }
-        }
+protected override void OnBackgroundActivated(BackgroundActivatedEventArgs args)
+{
+    //this method is invoked when the Win32 process requests to open the communication channel with the App Service
+    base.OnBackgroundActivated(args);
+    if (args.TaskInstance.TriggerDetails is AppServiceTriggerDetails)
+    {
+        appServiceDeferral = args.TaskInstance.GetDeferral();
+        AppServiceTriggerDetails details = args.TaskInstance.TriggerDetails as AppServiceTriggerDetails;
+        Connection = details.AppServiceConnection;
+        //we subscribe to the RequestReceived event, which is triggered when the Win32 app sends some data through the channel
+        Connection.RequestReceived += Connection_RequestReceived;
+    }
+}
 
         private void Connection_RequestReceived(AppServiceConnection sender, AppServiceRequestReceivedEventArgs args)
         {
@@ -124,7 +124,6 @@ namespace ExpenseItDemo
             if (args.Request.Message.ContainsKey("Status"))
             {
                 string currentStatus = args.Request.Message["Status"].ToString();
-                StatusUpdated?.Invoke(this, currentStatus);
             }
         }
     }

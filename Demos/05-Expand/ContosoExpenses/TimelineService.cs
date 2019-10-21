@@ -1,7 +1,6 @@
 ﻿using AdaptiveCards;
 using ContosoExpenses.Data.Models;
 using System;
-using System.Threading.Tasks;
 using Windows.ApplicationModel.UserActivities;
 using Windows.UI.Shell;
 
@@ -71,7 +70,7 @@ namespace ContosoExpenses
             return json;
         }
 
-        public async Task AddToTimeline(Expense expense)
+        public async System.Threading.Tasks.Task AddToTimeline(Expense expense)
         {
             _userActivityChannel = UserActivityChannel.GetDefault();
             _userActivity = await _userActivityChannel.GetOrCreateUserActivityAsync($"Expense-{expense.ExpenseId}");

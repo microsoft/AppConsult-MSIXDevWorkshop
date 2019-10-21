@@ -4,17 +4,16 @@
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
-  xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="29949MatteoPagani.CortanaWPF"
-    Publisher="CN=E49EFE37-9F4A-4570-85EB-A6E45D192595"
+    Name="98e02217-0fb4-4b50-a6b5-6bc7136acff1"
+    Publisher="CN=mpagani"
     Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>CortanaWPF</DisplayName>
-    <PublisherDisplayName>Matteo Pagani</PublisherDisplayName>
+    <DisplayName>ExpenseItPackage</DisplayName>
+    <PublisherDisplayName>mpagani</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
 
@@ -32,20 +31,23 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="CortanaWPF"
-        Description="ExpenseItDemo.Package"
+        DisplayName="ExpenseItPackage"
+        Description="ExpenseItPackage"
         BackgroundColor="transparent"
         Square150x150Logo="Images\Square150x150Logo.png"
         Square44x44Logo="Images\Square44x44Logo.png">
         <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" />
         <uap:SplashScreen Image="Images\SplashScreen.png" />
       </uap:VisualElements>
-<Extensions>
-  <uap:Extension Category="windows.appService">
-    <uap:AppService Name="DatabaseService" />
-  </uap:Extension>
-  <desktop:Extension Category="windows.fullTrustProcess" Executable="ExpenseItDemo.Export\ExpenseItDemo.Export.exe" />
-</Extensions>
+      <Extensions>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="rep">
+            <uap:SupportedFileTypes>
+              <uap:FileType>.rep</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+      </Extensions>
     </Application>
   </Applications>
 
