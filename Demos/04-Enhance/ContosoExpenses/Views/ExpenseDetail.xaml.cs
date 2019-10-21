@@ -22,12 +22,12 @@ namespace ContosoExpenses.Views
     /// <summary>
     /// Interaction logic for ExpenseDetail.xaml
     /// </summary>
-    public partial class ExpenseDetail : Window
+public partial class ExpenseDetail : Window
+{
+    public ExpenseDetail()
     {
-        public ExpenseDetail()
-        {
-            InitializeComponent();
-            Signature.InkPresenter.InputDeviceTypes = CoreInputDeviceTypes.Mouse | CoreInputDeviceTypes.Pen;
-        }
+        InitializeComponent();
+        Signature.InkPresenter.InputDeviceTypes = CoreInputDeviceTypes.Mouse | CoreInputDeviceTypes.Pen;
     }
+}
 }

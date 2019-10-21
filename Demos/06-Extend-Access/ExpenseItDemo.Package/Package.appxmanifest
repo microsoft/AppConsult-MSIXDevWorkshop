@@ -8,13 +8,13 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="3e03b370-df16-4301-9ef4-b491f33116c5"
-    Publisher="CN=mpagani"
+    Name="29949MatteoPagani.CortanaWPF"
+    Publisher="CN=E49EFE37-9F4A-4570-85EB-A6E45D192595"
     Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>ExpenseItDemo.Package</DisplayName>
-    <PublisherDisplayName>mpagani</PublisherDisplayName>
+    <DisplayName>CortanaWPF</DisplayName>
+    <PublisherDisplayName>Matteo Pagani</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
 
@@ -32,7 +32,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="ExpenseItDemo.Package"
+        DisplayName="CortanaWPF"
         Description="ExpenseItDemo.Package"
         BackgroundColor="transparent"
         Square150x150Logo="Images\Square150x150Logo.png"
@@ -40,12 +40,12 @@
         <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" />
         <uap:SplashScreen Image="Images\SplashScreen.png" />
       </uap:VisualElements>
-      <Extensions>
-        <uap:Extension Category="windows.appService">
-          <uap:AppService Name="DatabaseService" />
-        </uap:Extension>
-        <desktop:Extension Category="windows.fullTrustProcess" Executable="ExpenseItDemo.Export\ExpenseItDemo.Export.exe" />
-      </Extensions>
+<Extensions>
+  <uap:Extension Category="windows.appService">
+    <uap:AppService Name="DatabaseService" />
+  </uap:Extension>
+  <desktop:Extension Category="windows.fullTrustProcess" Executable="ExpenseItDemo.Export\ExpenseItDemo.Export.exe" />
+</Extensions>
     </Application>
   </Applications>
 

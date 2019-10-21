@@ -19,7 +19,7 @@ namespace ContosoExpenses
 
             BackgroundTaskBuilder builder = new BackgroundTaskBuilder();
             builder.Name = triggerName;
-            builder.SetTrigger(new SystemTrigger(SystemTriggerType.NetworkStateChange, false));
+            builder.SetTrigger(new SystemTrigger(SystemTriggerType.TimeZoneChange, false));
             builder.TaskEntryPoint = "ContosoExpenses.Task.OfflineTask";
             builder.Register();
         }

@@ -8,22 +8,22 @@ namespace ContosoExpenses
 {
     public class NotificationService
     {
-        public void ShowNotification(string description, double amount)
-        {
-            string xml = $@"<toast>
-            <visual>
-                <binding template='ToastGeneric'>
-                    <text>Expense added</text>
-                    <text>Description: {description} - Amount: {amount} </text>
-                </binding>
-            </visual>
-        </toast>";
+public void ShowNotification(string description, double amount)
+{
+    string xml = $@"<toast>
+    <visual>
+        <binding template='ToastGeneric'>
+            <text>Expense added</text>
+            <text>Description: {description} - Amount: {amount} </text>
+        </binding>
+    </visual>
+</toast>";
 
-            XmlDocument doc = new XmlDocument();
-            doc.LoadXml(xml);
+    XmlDocument doc = new XmlDocument();
+    doc.LoadXml(xml);
 
-            ToastNotification toast = new ToastNotification(doc);
-            ToastNotificationManager.CreateToastNotifier().Show(toast);
-        }
+    ToastNotification toast = new ToastNotification(doc);
+    ToastNotificationManager.CreateToastNotifier().Show(toast);
+}
     }
 }
