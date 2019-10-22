@@ -1,11 +1,9 @@
-﻿using Microsoft.Toolkit.Win32.UI.XamlHost;
-
-namespace UWPHead
+﻿namespace UWPHead
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
-    sealed partial class App : XamlApplication
+    sealed partial class App
     {
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -13,7 +11,7 @@ namespace UWPHead
         /// </summary>
         public App()
         {
-            this.Initialize();
+            this.InitializeComponent();
         }
     }
 }
